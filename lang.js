@@ -27,13 +27,22 @@ document.onreadystatechange = function () {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams( queryString );
 
-    if( urlParams.has( 'lang' ) ) {
+    if( urlParams.has( "lang" ) ) {
         setLanguage( urlParams.get( 'lang' ) );
     } else {
         setLanguage( 'de' );
     }
-
+   
+    document.getElementById( "de" ).onclick = function () {
+        setLanguage( "de" );
+    }
+    
+    document.getElementById( "fr" ).onclick = function () {
+        setLanguage( "fr" );
+    }    
 }
+
+
 
 function setLanguage( lang ) {
     for ( i in text[ lang ] ) {
