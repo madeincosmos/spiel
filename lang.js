@@ -44,9 +44,12 @@ document.onreadystatechange = function () {
 
 
 
-function setLanguage( lang ) {
-    for ( i in text[ lang ] ) {
-        console.log( i + " : " + text[ lang ][ i ] );
-        document.getElementById( i ).innerHTML = text[ lang ][ i ] ;
-    };
+function setLanguage( newLang ) {
+    if ( lang !== newLang ) {
+        for ( i in text[ newLang ] ) {
+            document.getElementById( i ).innerHTML = text[ newLang ][ i ] ;
+        };
+        document.title = text[ newLang ][ "title" ];
+    }
+    lang = newLang;
 }
