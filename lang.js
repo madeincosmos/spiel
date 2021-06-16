@@ -1,4 +1,4 @@
-let lang = "de";
+let lang = 'de';
 
 let text = {
     "de": {
@@ -24,7 +24,15 @@ let text = {
 }
 
 document.onreadystatechange = function () {
-    setLanguage( "de" );
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams( queryString );
+
+    if( urlParams.has( 'lang' ) ) {
+        setLanguage( urlParams.get( 'lang' ) );
+    } else {
+        setLanguage( 'de' );
+    }
+
 }
 
 function setLanguage( lang ) {
